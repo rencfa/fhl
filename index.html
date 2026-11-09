@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos - Florence Lautrédou - FHL Consultants</title>
+    <!-- Importation d'une typographie moderne et fine -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-grey: #374151; 
+            --accent-color: #b4975a; 
+            --bg-light: #fafafa;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300; /* Police fine */
+            color: var(--dark-grey); /* Gris foncé */
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Animations dynamiques */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.8)), url('FHL-APropos-short.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Effet parallaxe discret */
+            height: 45vh;
+            min-height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            animation: fadeUp 1s ease-out;
+            position: relative;
+        }
+
+        .hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .hero:hover h1::after {
+            width: 80px; /* Dynamisme au survol */
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+            animation: fadeUp 1.2s ease-out;
+        }
+
+        /* Bio Section */
+        .bio-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 6rem;
+            align-items: start;
+        }
+
+        .bio-image-container {
+            position: sticky;
+            top: 4rem;
+            position: relative;
+        }
+
+        /* Effet de cadre moderne décalé */
+        .bio-image-container::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid #e5e7eb;
+            z-index: 0;
+            transition: transform 0.4s ease;
+        }
+
+        .bio-image-container:hover::before {
+            transform: translate(10px, -10px);
+        }
+
+        .bio-image-container img {
+            width: 100%;
+            height: auto;
+            position: relative;
+            z-index: 1;
+            filter: contrast(1.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+        }
+
+        .bio-content {
+            max-width: 800px;
+        }
+
+        /* Typographie du texte */
+        .bio-content p {
+            margin-top: 0;
+            margin-bottom: 2rem;
+            line-height: 1.9;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        .bio-content p.lead {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            font-weight: 400;
+            color: #1f2937; /* Légèrement plus sombre pour l'accroche */
+            margin-bottom: 3rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .bio-content p.lead::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            bottom: 10px;
+            width: 2px;
+            background: var(--accent-color);
+        }
+
+        .bio-content a {
+            color: var(--accent-color);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s ease;
+            word-break: break-all;
+        }
+
+        .bio-content a:hover {
+            border-bottom-color: var(--accent-color);
+        }
+
+        /* Partners Section */
+        .partners-section {
+            background-color: var(--bg-light);
+            padding: 6rem 2rem;
+        }
+
+        .partners-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .partners-header h2 {
+            color: #1f2937;
+            font-size: 1.8rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .partners-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 3rem;
+            align-items: center;
+            justify-items: center;
+        }
+
+        /* Dynamisme sur les logos : noir et blanc au repos, couleur et scale au survol */
+        .partner-item {
+            width: 100%;
+            max-width: 130px;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            border-radius: 50%;
+            background-color: #fff;
+            filter: grayscale(100%) opacity(0.7);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .partner-item:hover {
+            transform: scale(1.1) translateY(-5px);
+            filter: grayscale(0%) opacity(1);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+
+        .partner-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .bio-grid {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+            
+            .bio-image-container {
+                position: relative;
+                top: 0;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .partners-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                gap: 2rem;
+            }
+            
+            .bio-content p.lead {
+                font-size: 1.15rem;
+                padding-left: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <h1>À propos</h1>
+    </header>
+
+    <main class="container">
+        <section class="bio-grid">
+            <div class="bio-image-container">
+                <img src="Florence-1.jpeg" alt="Florence Lautrédou">
+            </div>
+            
+            <div class="bio-content">
+                <p class="lead">Florence Lautrédou possède une expérience du conseil en ressources humaines acquise à travers une expérience pluridisciplinaire, focalisée dès 2001 autour de l’accompagnement individuel et le team building en France et à l’étranger (Europe, Russie).</p>
+                
+                <p>Ancienne élève de l’École Normale Supérieure (Ulm), agrégée de lettres modernes, Florence Lautrédou a débuté sa carrière dans le journalisme et publié cinq romans ainsi que sept essais aux éditions Odile Jacob sur les thèmes de l’énergie individuelle et collective, l’inspiration, les illusions amoureuses). Sa spécialisation géographique (Russie et Europe de l’Est) lui a valu d’être missionnée en 1993 comme Expert National Détaché auprès de la Commission Européenne à Bruxelles sur le programme TACIS de soutien économique destiné aux États de la CEI.</p>
+                
+                <p>De 1997 à 2003, elle a mis son expérience internationale au service du métier de Conseil en Management en rejoignant Spencer Stuart puis Heidrick&Struggles comme Partner Elect sur des missions de recrutement, d’audit ressources humaines, de team building et de coaching en France, Russie et Europe de l’Est.</p>
+                
+                <p>Parallèlement elle s’est formée au coaching chez Uside, anciennement IFAS (Eric Albert), et s’est qualifiée en tant que praticienne certifiée MBTI. Elle a complété le volet international de sa formation en coaching chez Anthony Robbins Company, aux États-Unis.</p>
+                
+                <p>En juin 2003, elle a créé sa société, FHL Consultants, spécialisée en Executive Coaching avec un accent particulier sur le développement des talents, la créativité au niveau individuel et systémique, l’utilisation du « cerveau droit » (intuition, inspiration, sensibilité) dans le monde de l’entreprise. Elle intervient en France et à l’étranger (Europe, Russie) à travers des ateliers ponctuels ou des séminaires, des conférences destinées aux entreprises, aux clubs d’affaires (MEDEF, Great Place to Work, AuFéminin…) aux universités d’entreprise (La Caisse des Dépôts, Publicis, EDF, L’OREAL, Accenture, AXA, CapGemini…), aux universités et aux collectifs innovants (Les Crapauds Fous, l’Institut de Psychanalyse Lacanienne à St Pétersbourg, HEC Executive Coaching) et aux réseaux de conférenciers (Adgency Experts).</p>
+                
+                <p>Fin août 2018, elle a lancé dans le cadre des journées de rentrée MEDEF consacrées à l’Innovation la Slam-analyse, soit une technique créative de travail sur les émotions.</p>
+                
+                <p>Florence Lautrédou est également psychanalyste praticien, certifiée par le Conseil Supérieur de la Psychanalyse Active (CSDPA <a href="http://www.csdpa.fr/" target="_blank">http://www.csdpa.fr/</a>). Elle est certifiée Praticien en Hypnose Ericksonienne (IFHE – Institut Français d’Hypnose Ericksonienne <a href="http://ifhe.net/" target="_blank">http://ifhe.net/</a>), en Pratique Narrative (Michael White- Melbourne, Australia <a href="http://www.wikipratiquesnarratives.fr/index.php?title=Cat%C3%A9gorie:Florence_Lautredou" target="_blank">http://www.wikipratiquesnarratives.fr/index.php?title=Cat%C3%A9gorie:Florence_Lautredou</a>) et à la Robert Moss School of Active Dreaming.</p>
+                
+                <p>Elle est Membre Associée auprès de la Société Française de Coaching (SFCoach <a href="https://www.sfcoach.org/" target="_blank">https://www.sfcoach.org/</a>), dont elle fait partie du Conseil d’Administration, ainsi que du Groupe de Savoir Interne (GSI). Elle est aussi Membre Associée de l’Association Francophone des Types Psychologiques (AFTP <a href="https://types-psychologiques.com/" target="_blank">https://types-psychologiques.com/</a>) et Membre Associée de la Fédération Francophone des Pratiques Narratives (FFPN <a href="https://ffpnarratives.com/" target="_blank">https://ffpnarratives.com/</a>).</p>
+                
+                <p>Depuis octobre 2021 elle enseigne en tant que Faculty Member (Directeur Académique) auprès de HEC Paris Executive Education : Les Fondamentaux du Coaching HEC.</p>
+                
+                <p>Elle intervient indifféremment en anglais et en français.</p>
+            </div>
+        </section>
+    </main>
+
+    <section class="partners-section">
+        <div class="partners-header">
+            <h2>Réseau & Partenaires</h2>
+        </div>
+        <div class="partners-grid">
+            <div class="partner-item"><img src="AuFeminin.jpg" alt="AuFéminin"></div>
+            <div class="partner-item"><img src="Bamboo.jpeg" alt="Bamboo"></div>
+            <div class="partner-item"><img src="BertranFarenc.jpg" alt="Bertran Farenc"></div>
+            <div class="partner-item"><img src="ChristineCayol.jpg" alt="Christine Cayol"></div>
+            <div class="partner-item"><img src="ClaireAube.jpg" alt="Claire Aube"></div>
+            <div class="partner-item"><img src="DidierHerzog.jpg" alt="Didier Herzog"></div>
+            <div class="partner-item"><img src="FrancisCholle.jpg" alt="Francis Cholle"></div>
+            <div class="partner-item"><img src="GillesDufour.jpg" alt="Gilles Dufour"></div>
+            <div class="partner-item"><img src="GreatPlaceToWork.jpg" alt="Great Place To Work"></div>
+            <div class="partner-item"><img src="HRspeaks.jpg" alt="HR Speaks"></div>
+            <div class="partner-item"><img src="Pegasus.jpg" alt="Pegasus"></div>
+            <div class="partner-item"><img src="PierreBlanc-Sahnoun.jpg" alt="Pierre Blanc-Sahnoun"></div>
+            <div class="partner-item"><img src="RubenPerez.jpg" alt="Ruben Perez"></div>
+            <div class="partner-item"><img src="Simundia.jpg" alt="Simundia"></div>
+            <div class="partner-item"><img src="StephaneDieutre.jpg" alt="Stephane Dieutre"></div>
+            <div class="partner-item"><img src="TheAdgencyExpert.jpg" alt="The Adgency Expert"></div>
+        </div>
+    </section>
+
+</body>
+</html>
