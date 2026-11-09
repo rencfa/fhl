@@ -4,158 +4,189 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>À propos - Florence Lautrédou - FHL Consultants</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --dark-grey: #374151; 
-            --accent-color: #b4975a; 
-            --bg-light: #fafafa;
+            --navy-deep: #0f172a;
+            --dark-grey: #2d3748; 
+            --accent-gold: #b4975a; 
+            --accent-gold-light: rgba(180, 151, 90, 0.12);
+            --bg-light: #f8fafc;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
             font-family: 'Inter', sans-serif;
             font-weight: 300;
             color: var(--dark-grey);
-            margin: 0;
-            padding: 0;
             background-color: #ffffff;
+            line-height: 1.85;
             -webkit-font-smoothing: antialiased;
         }
 
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Hero Section Sobriété */
+        /* --- HERO HEADER --- */
         .hero {
-            background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.8)), url('FHL-APropos-short.jpg');
+            background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.8)), url('FHL-APropos-short.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            height: 40vh;
-            min-height: 300px;
+            height: 38vh;
+            min-height: 280px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: #ffffff;
             text-align: center;
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 2.75rem;
             font-weight: 300;
-            letter-spacing: 4px;
+            letter-spacing: 5px;
             text-transform: uppercase;
-            animation: fadeUp 0.8s ease-out;
+            animation: fadeIn 0.8s ease-out;
             position: relative;
         }
 
         .hero h1::after {
             content: '';
             position: absolute;
-            bottom: -15px;
+            bottom: -12px;
             left: 50%;
             transform: translateX(-50%);
-            width: 40px;
+            width: 45px;
             height: 2px;
-            background-color: var(--accent-color);
+            background-color: var(--accent-gold);
             transition: width 0.3s ease;
         }
 
         .hero:hover h1::after {
-            width: 70px;
+            width: 80px;
         }
 
-        /* Main Container */
+        /* --- CONTAINER PRINCIPAL --- */
         .container {
-            max-width: 1200px;
+            max-width: 1140px;
             margin: 0 auto;
             padding: 5rem 2rem;
-            animation: fadeUp 1s ease-out;
+            animation: fadeIn 1s ease-out;
         }
 
-        /* Bio Layout avec image Sticky */
+        /* --- LAYOUT BIO (2 COLONNES) --- */
         .bio-grid {
             display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 5rem;
+            grid-template-columns: 260px 1fr; /* Photo plus compacte */
+            gap: 4.5rem;
             align-items: start;
         }
 
-        .bio-image-container {
+        /* Encart Portrait Sticky & Compact */
+        .bio-sidebar {
             position: sticky;
             top: 4rem;
         }
 
-        .bio-image-container::before {
-            content: '';
-            position: absolute;
-            top: 15px;
-            left: -15px;
-            width: 100%;
-            height: 100%;
-            border: 1px solid #e5e7eb;
-            z-index: 0;
-            transition: transform 0.4s ease;
+        .portrait-card {
+            position: relative;
+            background: #ffffff;
+            border-radius: 6px;
+            padding: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.04);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
 
-        .bio-image-container:hover::before {
-            transform: translate(8px, -8px);
+        .portrait-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 35px rgba(0,0,0,0.08);
         }
 
-        .bio-image-container img {
+        .portrait-card img {
             width: 100%;
             height: auto;
-            position: relative;
-            z-index: 1;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
-            border-radius: 2px;
+            display: block;
+            border-radius: 4px;
         }
 
+        .portrait-info {
+            padding: 1rem 0.5rem 0.5rem 0.5rem;
+            text-align: center;
+        }
+
+        .portrait-name {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--navy-deep);
+            letter-spacing: 0.5px;
+        }
+
+        .portrait-role {
+            font-size: 0.75rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 2px;
+        }
+
+        /* --- TEXTE EDITORIAL --- */
         .bio-content {
-            max-width: 800px;
+            max-width: 780px;
         }
 
         .bio-content p {
             margin-top: 0;
             margin-bottom: 2rem;
-            line-height: 1.9;
-            font-size: 1.05rem;
+            font-size: 1.025rem;
             text-align: justify;
+            color: var(--dark-grey);
         }
 
         .bio-content p.lead {
-            font-size: 1.25rem;
-            line-height: 1.7;
+            font-size: 1.2rem;
+            line-height: 1.75;
             font-weight: 400;
-            color: #1f2937;
-            margin-bottom: 2.5rem;
-            position: relative;
+            color: var(--navy-deep);
+            margin-bottom: 2.8rem;
             padding-left: 1.5rem;
-            border-left: 2px solid var(--accent-color);
+            border-left: 2px solid var(--accent-gold);
+            background: linear-gradient(to right, var(--accent-gold-light), transparent);
+            padding-top: 0.8rem;
+            padding-bottom: 0.8rem;
+            border-radius: 0 4px 4px 0;
         }
 
-        /* Integration harmonieuse des liens */
+        /* Liens intégrés harmonieux & réactifs */
         .bio-content a {
-            color: #1f2937;
-            font-weight: 400;
+            color: var(--navy-deep);
+            font-weight: 500;
             text-decoration: none;
-            border-bottom: 1px solid var(--accent-color);
+            border-bottom: 1px solid var(--accent-gold);
             padding-bottom: 1px;
-            transition: color 0.2s ease, border-color 0.2s ease;
+            transition: all 0.25s ease;
         }
 
         .bio-content a:hover {
-            color: var(--accent-color);
-            border-bottom-color: #1f2937;
+            color: var(--accent-gold);
+            background-color: var(--accent-gold-light);
+            border-bottom-color: var(--navy-deep);
         }
 
-        /* Section Partenaires */
+        /* --- SECTION PARTENAIRES --- */
         .partners-section {
             background-color: var(--bg-light);
-            padding: 5rem 2rem 6rem 2rem;
-            border-top: 1px solid #f1f5f9;
+            padding: 5.5rem 2rem 7rem 2rem;
+            border-top: 1px solid var(--border-color);
         }
 
         .partners-header {
@@ -164,19 +195,32 @@
         }
 
         .partners-header h2 {
-            color: #1f2937;
-            font-size: 1.8rem;
+            color: var(--navy-deep);
+            font-size: 1.75rem;
             font-weight: 300;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .partners-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 1px;
+            background-color: var(--accent-gold);
         }
 
         .partners-grid {
-            max-width: 1200px;
+            max-width: 1140px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 3.5rem 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 3rem 2rem;
             align-items: start;
             justify-items: center;
         }
@@ -187,17 +231,19 @@
             align-items: center;
             text-align: center;
             width: 100%;
+            cursor: pointer;
         }
 
         .partner-image-wrapper {
-            width: 120px;
-            height: 120px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
             overflow: hidden;
-            background-color: #fff;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-bottom: 1.2rem;
-            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            margin-bottom: 1rem;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
         }
 
         .partner-image-wrapper img {
@@ -207,35 +253,36 @@
         }
 
         .partner-name {
-            font-size: 0.8rem;
+            font-size: 0.775rem;
             font-weight: 500;
-            color: #6b7280;
+            color: #64748b;
             text-transform: uppercase;
-            letter-spacing: 1.2px;
+            letter-spacing: 1px;
             transition: color 0.3s ease;
         }
 
-        /* Animation dynamique au survol */
+        /* Dynamics & Hover State Partenaires */
         .partner-item:hover .partner-image-wrapper {
             transform: scale(1.08) translateY(-4px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 14px 28px rgba(15, 23, 42, 0.08);
+            border-color: var(--accent-gold);
         }
 
         .partner-item:hover .partner-name {
-            color: var(--accent-color);
+            color: var(--navy-deep);
         }
 
-        /* Responsive */
+        /* --- RESPONSIVE DESIGN --- */
         @media (max-width: 900px) {
             .bio-grid {
                 grid-template-columns: 1fr;
-                gap: 3.5rem;
+                gap: 3rem;
             }
             
-            .bio-image-container {
+            .bio-sidebar {
                 position: relative;
                 top: 0;
-                max-width: 350px;
+                max-width: 240px;
                 margin: 0 auto;
             }
 
@@ -247,12 +294,16 @@
         @media (max-width: 500px) {
             .partners-grid {
                 grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-                gap: 2.5rem 1rem;
+                gap: 2rem 1rem;
             }
 
             .partner-image-wrapper {
-                width: 95px;
-                height: 95px;
+                width: 90px;
+                height: 90px;
+            }
+
+            .bio-content p.lead {
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -265,10 +316,19 @@
 
     <main class="container">
         <section class="bio-grid">
-            <div class="bio-image-container">
-                <img src="Florence-1.jpeg" alt="Florence Lautrédou">
-            </div>
             
+            <!-- Colonne Sticky avec photo compacte -->
+            <aside class="bio-sidebar">
+                <div class="portrait-card">
+                    <img src="Florence-1.jpeg" alt="Florence Lautrédou">
+                    <div class="portrait-info">
+                        <div class="portrait-name">Florence Lautrédou</div>
+                        <div class="portrait-role">FHL Consultants</div>
+                    </div>
+                </div>
+            </aside>
+            
+            <!-- Texte original conservé intégralement -->
             <div class="bio-content">
                 <p class="lead">Florence Lautrédou possède une expérience du conseil en ressources humaines acquise à travers une expérience pluridisciplinaire, focalisée dès 2001 autour de l’accompagnement individuel et le team building en France et à l’étranger (Europe, Russie).</p>
                 
@@ -293,6 +353,7 @@
         </section>
     </main>
 
+    <!-- Section Partenaires & Réseau -->
     <section class="partners-section">
         <div class="partners-header">
             <h2>Réseau & Partenaires</h2>
