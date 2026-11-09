@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>À propos - Florence Lautrédou - FHL Consultants</title>
-    <!-- Importation d'une typographie moderne et fine -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -15,15 +14,14 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            font-weight: 300; /* Police fine */
-            color: var(--dark-grey); /* Gris foncé */
+            font-weight: 300;
+            color: var(--dark-grey);
             margin: 0;
             padding: 0;
             background-color: #ffffff;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Animations dynamiques */
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
@@ -34,7 +32,7 @@
             background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.8)), url('FHL-APropos-short.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Effet parallaxe discret */
+            background-attachment: fixed;
             height: 45vh;
             min-height: 350px;
             display: flex;
@@ -66,7 +64,7 @@
         }
 
         .hero:hover h1::after {
-            width: 80px; /* Dynamisme au survol */
+            width: 80px;
         }
 
         /* Main Container */
@@ -91,7 +89,6 @@
             position: relative;
         }
 
-        /* Effet de cadre moderne décalé */
         .bio-image-container::before {
             content: '';
             position: absolute;
@@ -121,7 +118,6 @@
             max-width: 800px;
         }
 
-        /* Typographie du texte */
         .bio-content p {
             margin-top: 0;
             margin-bottom: 2rem;
@@ -134,7 +130,7 @@
             font-size: 1.3rem;
             line-height: 1.7;
             font-weight: 400;
-            color: #1f2937; /* Légèrement plus sombre pour l'accroche */
+            color: #1f2937;
             margin-bottom: 3rem;
             position: relative;
             padding-left: 2rem;
@@ -150,27 +146,31 @@
             background: var(--accent-color);
         }
 
+        /* Typographie des liens hypertexte */
         .bio-content a {
             color: var(--accent-color);
             text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.3s ease;
-            word-break: break-all;
+            font-weight: 400;
+            border-bottom: 1px solid rgba(180, 151, 90, 0.3);
+            padding-bottom: 2px;
+            transition: all 0.3s ease;
         }
 
         .bio-content a:hover {
             border-bottom-color: var(--accent-color);
+            background-color: rgba(180, 151, 90, 0.05);
+            color: #927a48;
         }
 
         /* Partners Section */
         .partners-section {
             background-color: var(--bg-light);
-            padding: 6rem 2rem;
+            padding: 6rem 2rem 8rem 2rem;
         }
 
         .partners-header {
             text-align: center;
-            margin-bottom: 5rem;
+            margin-bottom: 6rem;
         }
 
         .partners-header h2 {
@@ -185,34 +185,56 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-            gap: 3rem;
-            align-items: center;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 4rem 2rem;
+            align-items: start;
             justify-items: center;
         }
 
-        /* Dynamisme sur les logos : noir et blanc au repos, couleur et scale au survol */
         .partner-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            cursor: default;
             width: 100%;
-            max-width: 130px;
-            aspect-ratio: 1 / 1;
-            overflow: hidden;
+        }
+
+        .partner-image-wrapper {
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
+            overflow: hidden;
             background-color: #fff;
             filter: grayscale(100%) opacity(0.7);
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            margin-bottom: 1.5rem;
         }
 
-        .partner-item:hover {
-            transform: scale(1.1) translateY(-5px);
-            filter: grayscale(0%) opacity(1);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
-        }
-
-        .partner-item img {
+        .partner-image-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        .partner-name {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: color 0.4s ease;
+        }
+
+        .partner-item:hover .partner-image-wrapper {
+            transform: scale(1.08) translateY(-5px);
+            filter: grayscale(0%) opacity(1);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .partner-item:hover .partner-name {
+            color: var(--accent-color);
         }
 
         /* Responsive */
@@ -236,13 +258,22 @@
 
         @media (max-width: 500px) {
             .partners-grid {
-                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-                gap: 2rem;
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+                gap: 3rem 1rem;
             }
             
             .bio-content p.lead {
                 font-size: 1.15rem;
                 padding-left: 1.5rem;
+            }
+
+            .partner-image-wrapper {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .partner-name {
+                font-size: 0.75rem;
             }
         }
     </style>
@@ -272,9 +303,9 @@
                 
                 <p>Fin août 2018, elle a lancé dans le cadre des journées de rentrée MEDEF consacrées à l’Innovation la Slam-analyse, soit une technique créative de travail sur les émotions.</p>
                 
-                <p>Florence Lautrédou est également psychanalyste praticien, certifiée par le Conseil Supérieur de la Psychanalyse Active (CSDPA <a href="http://www.csdpa.fr/" target="_blank">http://www.csdpa.fr/</a>). Elle est certifiée Praticien en Hypnose Ericksonienne (IFHE – Institut Français d’Hypnose Ericksonienne <a href="http://ifhe.net/" target="_blank">http://ifhe.net/</a>), en Pratique Narrative (Michael White- Melbourne, Australia <a href="http://www.wikipratiquesnarratives.fr/index.php?title=Cat%C3%A9gorie:Florence_Lautredou" target="_blank">http://www.wikipratiquesnarratives.fr/index.php?title=Cat%C3%A9gorie:Florence_Lautredou</a>) et à la Robert Moss School of Active Dreaming.</p>
+                <p>Florence Lautrédou est également psychanalyste praticien, certifiée par le Conseil Supérieur de la Psychanalyse Active (<a href="http://www.csdpa.fr/" target="_blank">CSDPA</a>). Elle est certifiée Praticien en Hypnose Ericksonienne (<a href="http://ifhe.net/" target="_blank">IFHE – Institut Français d’Hypnose Ericksonienne</a>), en Pratique Narrative (<a href="http://www.wikipratiquesnarratives.fr/index.php?title=Cat%C3%A9gorie:Florence_Lautredou" target="_blank">Michael White- Melbourne, Australia</a>) et à la Robert Moss School of Active Dreaming.</p>
                 
-                <p>Elle est Membre Associée auprès de la Société Française de Coaching (SFCoach <a href="https://www.sfcoach.org/" target="_blank">https://www.sfcoach.org/</a>), dont elle fait partie du Conseil d’Administration, ainsi que du Groupe de Savoir Interne (GSI). Elle est aussi Membre Associée de l’Association Francophone des Types Psychologiques (AFTP <a href="https://types-psychologiques.com/" target="_blank">https://types-psychologiques.com/</a>) et Membre Associée de la Fédération Francophone des Pratiques Narratives (FFPN <a href="https://ffpnarratives.com/" target="_blank">https://ffpnarratives.com/</a>).</p>
+                <p>Elle est Membre Associée auprès de la Société Française de Coaching (<a href="https://www.sfcoach.org/" target="_blank">SFCoach</a>), dont elle fait partie du Conseil d’Administration, ainsi que du Groupe de Savoir Interne (GSI). Elle est aussi Membre Associée de l’Association Francophone des Types Psychologiques (<a href="https://types-psychologiques.com/" target="_blank">AFTP</a>) et Membre Associée de la Fédération Francophone des Pratiques Narratives (<a href="https://ffpnarratives.com/" target="_blank">FFPN</a>).</p>
                 
                 <p>Depuis octobre 2021 elle enseigne en tant que Faculty Member (Directeur Académique) auprès de HEC Paris Executive Education : Les Fondamentaux du Coaching HEC.</p>
                 
@@ -288,22 +319,70 @@
             <h2>Réseau & Partenaires</h2>
         </div>
         <div class="partners-grid">
-            <div class="partner-item"><img src="AuFeminin.jpg" alt="AuFéminin"></div>
-            <div class="partner-item"><img src="Bamboo.jpeg" alt="Bamboo"></div>
-            <div class="partner-item"><img src="BertranFarenc.jpg" alt="Bertran Farenc"></div>
-            <div class="partner-item"><img src="ChristineCayol.jpg" alt="Christine Cayol"></div>
-            <div class="partner-item"><img src="ClaireAube.jpg" alt="Claire Aube"></div>
-            <div class="partner-item"><img src="DidierHerzog.jpg" alt="Didier Herzog"></div>
-            <div class="partner-item"><img src="FrancisCholle.jpg" alt="Francis Cholle"></div>
-            <div class="partner-item"><img src="GillesDufour.jpg" alt="Gilles Dufour"></div>
-            <div class="partner-item"><img src="GreatPlaceToWork.jpg" alt="Great Place To Work"></div>
-            <div class="partner-item"><img src="HRspeaks.jpg" alt="HR Speaks"></div>
-            <div class="partner-item"><img src="Pegasus.jpg" alt="Pegasus"></div>
-            <div class="partner-item"><img src="PierreBlanc-Sahnoun.jpg" alt="Pierre Blanc-Sahnoun"></div>
-            <div class="partner-item"><img src="RubenPerez.jpg" alt="Ruben Perez"></div>
-            <div class="partner-item"><img src="Simundia.jpg" alt="Simundia"></div>
-            <div class="partner-item"><img src="StephaneDieutre.jpg" alt="Stephane Dieutre"></div>
-            <div class="partner-item"><img src="TheAdgencyExpert.jpg" alt="The Adgency Expert"></div>
+            <div class="partner-item">
+                <div class="partner-image-wrapper"><img src="AuFeminin.jpg" alt="AuFéminin"></div>
+                <span class="partner-name">AuFéminin</span>
+            </div>
+            <div class="partner-item">
+                <div class="partner-image-wrapper"><img src="Bamboo.jpeg" alt="Bamboo"></div>
+                <span class="partner-name">Bamboo</span>
+            </div>
+            <div class="partner-item">
+                <div class="partner-image-wrapper"><img src="BertranFarenc.jpg" alt="Bertran Farenc"></div>
+                <span class="partner-name">Bertran Farenc</span>
+            </div>
+            <div class="partner-item">
+                <div class="partner-image-wrapper"><img src="ChristineCayol.jpg" alt="Christine Cayol"></div>
+                <span class="partner-name">Christine Cayol</span>
+            </div>
+            <div class="partner-item">
+                <div class="partner-image-wrapper"><img src="ClaireAube.jpg" alt="Claire Aube"></div>
+                <span class="partner-name">Claire Aube</span>
+            </div>
+            <div class="partner-item">
+                <div class="partner-image-wrapper"><img src="DidierHerzog.jpg" alt="Didier Herzog"></div>
+                <span class="partner-name">Didier Herzog</span>
+            </div>
+            <div class="partner-item">
+                <div class="partner-image-wrapper"><img src="FrancisCholle.jpg" alt="Francis Cholle"></div>
+                <span class="partner-name">Francis Cholle</span>
+            </div>
+            <div class="partner-item">
+                <div class="partner-image-wrapper"><img src="GillesDufour.jpg" alt="Gilles Dufour"></div>
+                <span class="partner-name">Gilles Dufour</span>
+            </div>
+            <div class="partner-item">
+                <div class="partner-image-wrapper"><img src="GreatPlaceToWork.jpg" alt="Great Place To Work"></div>
+                <span class="partner-name">Great Place To Work</span>
+            </div>
+            <div class="partner-item">
+                <div class="partner-image-wrapper"><img src="HRspeaks.jpg" alt="HR Speaks"></div>
+                <span class="partner-name">HR Speaks</span>
+            </div>
+            <div class="partner-item">
+                <div class="partner-image-wrapper"><img src="Pegasus.jpg" alt="Pegasus"></div>
+                <span class="partner-name">Pegasus</span>
+            </div>
+            <div class="partner-item">
+                <div class="partner-image-wrapper"><img src="PierreBlanc-Sahnoun.jpg" alt="Pierre Blanc-Sahnoun"></div>
+                <span class="partner-name">Pierre Blanc-Sahnoun</span>
+            </div>
+            <div class="partner-item">
+                <div class="partner-image-wrapper"><img src="RubenPerez.jpg" alt="Ruben Perez"></div>
+                <span class="partner-name">Ruben Perez</span>
+            </div>
+            <div class="partner-item">
+                <div class="partner-image-wrapper"><img src="Simundia.jpg" alt="Simundia"></div>
+                <span class="partner-name">Simundia</span>
+            </div>
+            <div class="partner-item">
+                <div class="partner-image-wrapper"><img src="StephaneDieutre.jpg" alt="Stephane Dieutre"></div>
+                <span class="partner-name">Stephane Dieutre</span>
+            </div>
+            <div class="partner-item">
+                <div class="partner-image-wrapper"><img src="TheAdgencyExpert.jpg" alt="The Adgency Expert"></div>
+                <span class="partner-name">The Adgency Expert</span>
+            </div>
         </div>
     </section>
 
