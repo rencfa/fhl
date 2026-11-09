@@ -35,7 +35,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- HERO HEADER --- */
+        /* Hero Section */
         .hero {
             background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.8)), url('FHL-APropos-short.jpg');
             background-size: cover;
@@ -75,7 +75,7 @@
             width: 80px;
         }
 
-        /* --- CONTAINER PRINCIPAL --- */
+        /* Container principal */
         .container {
             max-width: 1140px;
             margin: 0 auto;
@@ -83,15 +83,14 @@
             animation: fadeIn 1s ease-out;
         }
 
-        /* --- LAYOUT BIO (2 COLONNES) --- */
+        /* Layout Bio */
         .bio-grid {
             display: grid;
-            grid-template-columns: 260px 1fr; /* Photo plus compacte */
+            grid-template-columns: 260px 1fr;
             gap: 4.5rem;
             align-items: start;
         }
 
-        /* Encart Portrait Sticky & Compact */
         .bio-sidebar {
             position: sticky;
             top: 4rem;
@@ -139,7 +138,7 @@
             margin-top: 2px;
         }
 
-        /* --- TEXTE EDITORIAL --- */
+        /* Contenu Texte */
         .bio-content {
             max-width: 780px;
         }
@@ -166,7 +165,6 @@
             border-radius: 0 4px 4px 0;
         }
 
-        /* Liens intégrés harmonieux & réactifs */
         .bio-content a {
             color: var(--navy-deep);
             font-weight: 500;
@@ -182,7 +180,7 @@
             border-bottom-color: var(--navy-deep);
         }
 
-        /* --- SECTION PARTENAIRES --- */
+        /* Section Partenaires */
         .partners-section {
             background-color: var(--bg-light);
             padding: 5.5rem 2rem 7rem 2rem;
@@ -261,7 +259,6 @@
             transition: color 0.3s ease;
         }
 
-        /* Dynamics & Hover State Partenaires */
         .partner-item:hover .partner-image-wrapper {
             transform: scale(1.08) translateY(-4px);
             box-shadow: 0 14px 28px rgba(15, 23, 42, 0.08);
@@ -272,7 +269,6 @@
             color: var(--navy-deep);
         }
 
-        /* --- RESPONSIVE DESIGN --- */
         @media (max-width: 900px) {
             .bio-grid {
                 grid-template-columns: 1fr;
@@ -301,10 +297,6 @@
                 width: 90px;
                 height: 90px;
             }
-
-            .bio-content p.lead {
-                font-size: 1.1rem;
-            }
         }
     </style>
 </head>
@@ -316,8 +308,6 @@
 
     <main class="container">
         <section class="bio-grid">
-            
-            <!-- Colonne Sticky avec photo compacte -->
             <aside class="bio-sidebar">
                 <div class="portrait-card">
                     <img src="Florence-1.jpeg" alt="Florence Lautrédou">
@@ -328,7 +318,6 @@
                 </div>
             </aside>
             
-            <!-- Texte original conservé intégralement -->
             <div class="bio-content">
                 <p class="lead">Florence Lautrédou possède une expérience du conseil en ressources humaines acquise à travers une expérience pluridisciplinaire, focalisée dès 2001 autour de l’accompagnement individuel et le team building en France et à l’étranger (Europe, Russie).</p>
                 
@@ -353,12 +342,52 @@
         </section>
     </main>
 
-    <!-- Section Partenaires & Réseau -->
+    <!-- Partenaires dans l'ordre exact de la capture d'origine (de haut en bas) -->
     <section class="partners-section">
         <div class="partners-header">
             <h2>Réseau & Partenaires</h2>
         </div>
         <div class="partners-grid">
+            <div class="partner-item">
+                <div class="partner-image-wrapper"><img src="ClaireAube.jpg" alt="Claire Aubé"></div>
+                <span class="partner-name">Claire Aubé</span>
+            </div>
+            <div class="partner-item">
+                <div class="partner-image-wrapper"><img src="StephaneDieutre.jpg" alt="Stéphane Dieutre"></div>
+                <span class="partner-name">Stéphane Dieutre</span>
+            </div>
+            <div class="partner-item">
+                <div class="partner-image-wrapper"><img src="ChristineCayol.jpg" alt="Christine Cayol"></div>
+                <span class="partner-name">Christine Cayol</span>
+            </div>
+            <div class="partner-item">
+                <div class="partner-image-wrapper"><img src="FrancisCholle.jpg" alt="Francis Cholle"></div>
+                <span class="partner-name">Francis Cholle</span>
+            </div>
+            <div class="partner-item">
+                <div class="partner-image-wrapper"><img src="DidierHerzog.jpg" alt="Didier Herzog"></div>
+                <span class="partner-name">Didier Herzog</span>
+            </div>
+            <div class="partner-item">
+                <div class="partner-image-wrapper"><img src="GillesDufour.jpg" alt="Gilles Dufour"></div>
+                <span class="partner-name">Gilles Dufour</span>
+            </div>
+            <div class="partner-item">
+                <div class="partner-image-wrapper"><img src="PierreBlanc-Sahnoun.jpg" alt="Pierre Blanc-Sahnoun"></div>
+                <span class="partner-name">Pierre Blanc-Sahnoun</span>
+            </div>
+            <div class="partner-item">
+                <div class="partner-image-wrapper"><img src="RubenPerez.jpg" alt="Ruben Perez"></div>
+                <span class="partner-name">Ruben Perez</span>
+            </div>
+            <div class="partner-item">
+                <div class="partner-image-wrapper"><img src="BertranFarenc.jpg" alt="Bertran Farenc"></div>
+                <span class="partner-name">Bertran Farenc</span>
+            </div>
+            <div class="partner-item">
+                <div class="partner-image-wrapper"><img src="TheAdgencyExpert.jpg" alt="The Adgency Expert"></div>
+                <span class="partner-name">The Adgency Expert</span>
+            </div>
             <div class="partner-item">
                 <div class="partner-image-wrapper"><img src="AuFeminin.jpg" alt="AuFéminin"></div>
                 <span class="partner-name">AuFéminin</span>
@@ -366,30 +395,6 @@
             <div class="partner-item">
                 <div class="partner-image-wrapper"><img src="Bamboo.jpeg" alt="Bamboo"></div>
                 <span class="partner-name">Bamboo</span>
-            </div>
-            <div class="partner-item">
-                <div class="partner-image-wrapper"><img src="BertranFarenc.jpg" alt="Bertran Farenc"></div>
-                <span class="partner-name">Bertran Farenc</span>
-            </div>
-            <div class="partner-item">
-                <div class="partner-image-wrapper"><img src="ChristineCayol.jpg" alt="Christine Cayol"></div>
-                <span class="partner-name">Christine Cayol</span>
-            </div>
-            <div class="partner-item">
-                <div class="partner-image-wrapper"><img src="ClaireAube.jpg" alt="Claire Aube"></div>
-                <span class="partner-name">Claire Aube</span>
-            </div>
-            <div class="partner-item">
-                <div class="partner-image-wrapper"><img src="DidierHerzog.jpg" alt="Didier Herzog"></div>
-                <span class="partner-name">Didier Herzog</span>
-            </div>
-            <div class="partner-item">
-                <div class="partner-image-wrapper"><img src="FrancisCholle.jpg" alt="Francis Cholle"></div>
-                <span class="partner-name">Francis Cholle</span>
-            </div>
-            <div class="partner-item">
-                <div class="partner-image-wrapper"><img src="GillesDufour.jpg" alt="Gilles Dufour"></div>
-                <span class="partner-name">Gilles Dufour</span>
             </div>
             <div class="partner-item">
                 <div class="partner-image-wrapper"><img src="GreatPlaceToWork.jpg" alt="Great Place To Work"></div>
@@ -404,24 +409,8 @@
                 <span class="partner-name">Pegasus</span>
             </div>
             <div class="partner-item">
-                <div class="partner-image-wrapper"><img src="PierreBlanc-Sahnoun.jpg" alt="Pierre Blanc-Sahnoun"></div>
-                <span class="partner-name">Pierre Blanc-Sahnoun</span>
-            </div>
-            <div class="partner-item">
-                <div class="partner-image-wrapper"><img src="RubenPerez.jpg" alt="Ruben Perez"></div>
-                <span class="partner-name">Ruben Perez</span>
-            </div>
-            <div class="partner-item">
                 <div class="partner-image-wrapper"><img src="Simundia.jpg" alt="Simundia"></div>
                 <span class="partner-name">Simundia</span>
-            </div>
-            <div class="partner-item">
-                <div class="partner-image-wrapper"><img src="StephaneDieutre.jpg" alt="Stephane Dieutre"></div>
-                <span class="partner-name">Stephane Dieutre</span>
-            </div>
-            <div class="partner-item">
-                <div class="partner-image-wrapper"><img src="TheAdgencyExpert.jpg" alt="The Adgency Expert"></div>
-                <span class="partner-name">The Adgency Expert</span>
             </div>
         </div>
     </section>
