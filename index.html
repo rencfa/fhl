@@ -12,13 +12,13 @@
     
     <style>
         :root {
-            --navy-dark: #0b132b;
-            --navy-slate: #1c2541;
-            --text-main: #2b3545;
-            --gold-accent: #c5a059;
-            --gold-light: rgba(197, 160, 89, 0.12);
-            --bg-offwhite: #fcfbf9;
-            --border-light: #e8ecef;
+            --emerald-dark: #1a4332;      /* Émeraude sourd (Structure & Titres) */
+            --pine-deep: #11281e;         /* Vert sapin profond (Dégradé Hero) */
+            --bordeaux-accent: #6d192a;   /* Bordeaux framboise (Liens & Accents) */
+            --camel-gold: #b58952;        /* Camel doré doux (Filets & Cadres) */
+            --text-main: #2c2226;         /* Anthracite nuancé prune */
+            --bg-offwhite: #f6f1e9;       /* Ivoire chaud du nuancier */
+            --border-light: #e5ddd0;      /* Bordure sable */
         }
 
         * {
@@ -39,7 +39,7 @@
         /* --- HERO HEADER EDITION LUXE --- */
         .hero {
             position: relative;
-            background: linear-gradient(180deg, rgba(11, 19, 43, 0.4) 0%, rgba(11, 19, 43, 0.78) 100%), url('FHL-APropos-short.jpg');
+            background: linear-gradient(180deg, rgba(26, 67, 50, 0.45) 0%, rgba(17, 40, 30, 0.84) 100%), url('FHL-APropos-short.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -70,7 +70,7 @@
         .hero-divider {
             width: 60px;
             height: 1px;
-            background: var(--gold-accent);
+            background: var(--camel-gold);
             margin: 1rem auto 0 auto;
             transition: width 0.4s ease;
         }
@@ -93,7 +93,7 @@
             align-items: start;
         }
 
-        /* --- PORTRAIT CARD (EFET CADRE SUPERPOSÉ "WHAOU") --- */
+        /* --- PORTRAIT CARD (EFFET CADRE SUPERPOSÉ) --- */
         .sticky-sidebar {
             position: sticky;
             top: 4rem;
@@ -105,7 +105,7 @@
             background: #ffffff;
         }
 
-        /* Cadre doré arrière-plan */
+        /* Cadre camel doré arrière-plan */
         .portrait-frame::before {
             content: '';
             position: absolute;
@@ -113,7 +113,7 @@
             left: -14px;
             width: 100%;
             height: 100%;
-            border: 1px solid var(--gold-accent);
+            border: 1px solid var(--camel-gold);
             z-index: 0;
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
@@ -127,7 +127,7 @@
             z-index: 1;
             background: #ffffff;
             border: 1px solid var(--border-light);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 15px 35px rgba(26, 67, 50, 0.05);
             padding: 8px;
         }
 
@@ -147,14 +147,14 @@
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.35rem;
             font-weight: 600;
-            color: var(--navy-dark);
+            color: var(--emerald-dark);
             letter-spacing: 0.5px;
         }
 
         .portrait-title {
             font-size: 0.75rem;
             font-weight: 500;
-            color: var(--gold-accent);
+            color: var(--bordeaux-accent);
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-top: 3px;
@@ -179,28 +179,28 @@
             font-size: 1.22rem;
             line-height: 1.8;
             font-weight: 400;
-            color: var(--navy-dark);
+            color: var(--emerald-dark);
             margin-bottom: 3rem;
             padding: 1.5rem 1.8rem;
             background-color: var(--bg-offwhite);
-            border-left: 3px solid var(--gold-accent);
+            border-left: 3px solid var(--camel-gold);
             box-shadow: 0 4px 20px rgba(0,0,0,0.02);
         }
 
         /* Animation des liens hypertexte (Trait étirable au survol) */
         .bio-body a {
-            color: var(--navy-dark);
+            color: var(--bordeaux-accent);
             font-weight: 400;
             text-decoration: none;
             position: relative;
             padding-bottom: 2px;
-            background: linear-gradient(to right, var(--gold-accent), var(--gold-accent)) no-repeat right bottom;
+            background: linear-gradient(to right, var(--camel-gold), var(--camel-gold)) no-repeat right bottom;
             background-size: 100% 1px;
             transition: background-size 0.35s ease, color 0.25s ease;
         }
 
         .bio-body a:hover {
-            color: var(--gold-accent);
+            color: var(--emerald-dark);
             background-position: left bottom;
             background-size: 100% 2px;
         }
@@ -221,7 +221,7 @@
             font-family: 'Cormorant Garamond', serif;
             font-size: 2.2rem;
             font-weight: 500;
-            color: var(--navy-dark);
+            color: var(--emerald-dark);
             letter-spacing: 2px;
             text-transform: uppercase;
         }
@@ -229,7 +229,7 @@
         .partners-header-line {
             width: 40px;
             height: 1px;
-            background-color: var(--gold-accent);
+            background-color: var(--camel-gold);
             margin: 0.8rem auto 0 auto;
         }
 
@@ -276,7 +276,7 @@
         .partner-label {
             font-size: 0.775rem;
             font-weight: 500;
-            color: #5a6578;
+            color: #5c5356;
             text-transform: uppercase;
             letter-spacing: 1.2px;
             transition: color 0.3s ease;
@@ -285,12 +285,12 @@
         /* Micro-interactions Partenaires */
         .partner-card:hover .partner-avatar {
             transform: scale(1.08) translateY(-6px);
-            border-color: var(--gold-accent);
-            box-shadow: 0 16px 32px rgba(11, 19, 43, 0.1);
+            border-color: var(--bordeaux-accent);
+            box-shadow: 0 16px 32px rgba(26, 67, 50, 0.12);
         }
 
         .partner-card:hover .partner-label {
-            color: var(--navy-dark);
+            color: var(--bordeaux-accent);
         }
 
         /* --- RESPONSIVE --- */
@@ -344,7 +344,7 @@
     <main class="main-wrapper">
         <section class="bio-grid">
             
-            <!-- Sidebar Sticky (Portrait avec double cadre Or) -->
+            <!-- Sidebar Sticky (Portrait avec double cadre Camel doré) -->
             <aside class="sticky-sidebar">
                 <div class="portrait-frame">
                     <div class="portrait-inner">
@@ -382,7 +382,7 @@
         </section>
     </main>
 
-    <!-- Partenaires & Réseau (Ordre Exact de la Capture) -->
+    <!-- Partenaires & Réseau -->
     <section class="partners-wrapper">
         <div class="partners-header">
             <h2>Réseau & Partenaires</h2>
